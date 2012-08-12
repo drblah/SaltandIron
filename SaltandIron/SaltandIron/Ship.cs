@@ -16,18 +16,31 @@ namespace SaltandIron
 
         private Texture2D texture;
         private Vector2 textureCenter;
-
-
-        public void LoadContent(ContentManager ContMan, string asset)
+        private string textureName;
+        private float size;
+        
+        
+        public Ship(string shipTexture, int x, int y, float textureSize)
         {
-            texture = ContMan.Load<Texture2D>(asset);
+            position.X = x;
+            position.Y = y;
+
+            textureName = shipTexture;
+            size = textureSize;
+        }
+        
+        
+
+        public void LoadContent(ContentManager ContMan)
+        {
+            texture = ContMan.Load<Texture2D>(textureName);
             textureCenter.X = texture.Width / 2;
             textureCenter.Y = texture.Height / 2;
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, position, null, Color.White, 0f, textureCenter, 0.5f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(texture, position, null, Color.White, 0f, textureCenter, size , SpriteEffects.None, 0f);
         }
 
 

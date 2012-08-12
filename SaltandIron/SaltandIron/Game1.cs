@@ -38,10 +38,10 @@ namespace SaltandIron
 
             this.IsMouseVisible = true;
 
-            battleShip = new Ship();
+            battleShip = new Ship("topdownship", 150, 150, 0.5f);
 
-            battleShip.position.X = 150;
-            battleShip.position.Y = 150;
+            //battleShip.position.X = 150;
+            //battleShip.position.Y = 150;
 
             base.Initialize();
         }
@@ -55,7 +55,7 @@ namespace SaltandIron
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            battleShip.LoadContent(this.Content, "topdownship");
+            battleShip.LoadContent(this.Content);
 
             // TODO: use this.Content to load your game content here
         }
